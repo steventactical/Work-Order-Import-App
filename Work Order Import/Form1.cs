@@ -17,7 +17,7 @@ namespace Work_Order_Import
     public partial class Form1 : Form
     {
         private int rowIndex;
-
+        //Sets SQL server connection string based on which location employee is located at
         public static string GetColumbusString(string columbusLocation)
         {
             string connectionString;
@@ -48,7 +48,7 @@ namespace Work_Order_Import
                     return connectionString;
             }
         }
-
+        //Returns Columbus SQL query
         public static string ColumbusQuery()
         {
             return @"SELECT
@@ -62,36 +62,14 @@ namespace Work_Order_Import
             INNER JOIN Thicknesses ON Parts.ID_ThicknessDefault = Thicknesses.ID
             ORDER BY Parts.Name ASC;";
         }
-
-        public static string ColumbusQuery2()
-        {
-            return @"Select 
-            [PartsData].[Layouts.Name] AS Layout,
-	        LEFT([PartsData].[OrderParts.UserNote1],7) AS WONumber,
-	        RIGHT([PartsData].[OrderParts.UserNote1],4) AS StepNumber,
-	        [Sheets].[UserNote1] AS ItemCode
-            FROM
-	        [Ohio Columbus 2019_Exchange].[dbo].[PartsData]
-	        INNER JOIN [Layouts] on [PartsData].[Layouts.ID] = [Layouts].[ID]
-	        INNER JOIN [LayoutSheets] on [Layouts].[ID] = [LayoutSheets].[ID_Layout]
-	        INNER JOIN [Sheets] on [LayoutSheets].[ID_Sheet] = [Sheets].[ID];";
-        }
-
-        public static string MasValidationQuery()
-        {
-            return @"SELECT a.ItemCode, a.D404_WorkOrderNo, b.BillNo, b.ComponentItemCode
-            FROM SO_SalesOrderDetail AS a
-            INNER JOIN BM_BillDetail AS b ON a.ItemCode = b.BillNo
-            WHERE a.D404_WorkOrderNo IS NOT NULL";
-        }
-
+        //Returns MAS ERP SQL query
         public static string MasQuery()
         {
             return @"SELECT ItemCode, QuantityOrdered, PromiseDate, D404_WorkOrderNo
             FROM SO_SalesOrderDetail
             WHERE D404_WorkOrderNo IS NOT NULL";
         }
-
+        //Checks if demo database is selected, otherwise returns connection string for MAS
         public static string GetMasString()
         {
             string location = Properties.Settings.Default.nestingLocation;
@@ -111,7 +89,7 @@ namespace Work_Order_Import
 
             return @"Password=P@$$w0rd; User ID=syncserver; Initial Catalog=WOScanServer; Server=mas\WOSCAN2;";
         }
-
+        //Method to populate Columbus database info into dataGridView3
         public void PopulateColumbusData()
         {
             string location = Properties.Settings.Default.nestingLocation;
@@ -153,52 +131,8 @@ namespace Work_Order_Import
             {
                 MessageBox.Show("Error loading Columbus data: " + ex.Message);
             }
-        }
-    
-        public void PopulateColumbusData2(string layoutName)
-        {
-            string location = Properties.Settings.Default.nestingLocation;
-            string connectionString = GetColumbusString(location);
-            string query = ColumbusQuery2();
-            try
-            {
-                if (location == "Demo")
-                {
-                    using (var conn = new SQLiteConnection(connectionString))
-                    {
-                        conn.Open();
-                        var cmd = new SQLiteCommand(query, conn);
-                        var adapter = new SQLiteDataAdapter(cmd);
-                        var ds = new DataSet();
-                        adapter.Fill(ds);
-                        dataGridView5.ReadOnly = false;
-                        dataGridView5.DataSource = ds.Tables[0];
-                        conn.Close();
-                    }
-                }
-                else
-                {
-                    using (var conn = new SqlConnection(connectionString))
-                    {
-                        conn.Open();
-                        var cmd = new SqlCommand(query, conn);
-                        var adapter = new SqlDataAdapter(cmd);
-                        var ds = new DataSet();
-                        adapter.Fill(ds);
-                        dataGridView5.ReadOnly = false;
-                        dataGridView5.DataSource = ds.Tables[0];
-                        conn.Close();
-                    }
-                }
-                // Apply the row filter
-                (dataGridView5.DataSource as DataTable).DefaultView.RowFilter = $"Layout LIKE '{layoutName}'";
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error loading Columbus layout data: " + ex.Message);
-            }
-        }
-
+        }    
+        //Method to populate MAS database info into dataGridView4
         public void PopulateMasData()
         {
             string location = Properties.Settings.Default.nestingLocation;
@@ -241,33 +175,10 @@ namespace Work_Order_Import
                 MessageBox.Show("Error loading MAS data: " + ex.Message);
             }
         }
-
-        public void PopulateMasData2()
-        {
-            string connectionString = GetMasString();
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(connectionString))
-                {
-                    string query = MasValidationQuery();
-                    SqlCommand cmd = new SqlCommand(query, conn);
-                    SqlDataAdapter dAdapter = new SqlDataAdapter(cmd);
-                    DataSet ds = new DataSet();
-                    dAdapter.Fill(ds);
-                    dataGridView6.ReadOnly = false;
-                    dataGridView6.DataSource = ds.Tables[0];
-                    conn.Close();
-                }
-            }
-            catch
-            {
-
-            }
-        }
-
+        //Used for part matching when part number in Columbus does not match MAS part number and reconciles this using part match file        
         private void InsertDgvIntoForm()
         {
-            // Ensure fileLocation is set
+            //Ensure fileLocation is set
             if (string.IsNullOrWhiteSpace(Properties.Settings.Default.fileLocation) || !Directory.Exists(Properties.Settings.Default.fileLocation))
             {
                 MessageBox.Show("Please select a location to store your part match file (User Settings.xml).");
@@ -289,15 +200,14 @@ namespace Work_Order_Import
                     }
                 }
             }
-
-            // Ensure XML file exists
+            //Ensure XML file exists
             string xmlPath = Path.Combine(Properties.Settings.Default.fileLocation, "User Settings.xml");
 
             if (!File.Exists(xmlPath))
             {
                 MessageBox.Show("Part number matching file not found. Creating a new one now.");
 
-                // Create a default table and write it to XML
+                //Create a default table and write it to XML
                 DataSet ds = new DataSet();
                 DataTable dt = new DataTable();
                 dt.Columns.Add("W/O Name");
@@ -307,7 +217,7 @@ namespace Work_Order_Import
                 ds.WriteXml(xmlPath);
             }
 
-            // Load the XML file into dataGridView2
+            //Load the XML file into dataGridView2
             try
             {
                 XmlReader xmlFile = XmlReader.Create(xmlPath, new XmlReaderSettings());
@@ -324,7 +234,7 @@ namespace Work_Order_Import
                 MessageBox.Show("Error loading part match file: " + ex.Message);
             }
         }
-
+        //Method for taking dataGridView2 part number matching and exporting it out to an XML file for repeated use
         private void ExportDgvToXML()
         {
             if (File.Exists($"{Properties.Settings.Default.fileLocation}\\User Settings.xml"))
@@ -334,7 +244,7 @@ namespace Work_Order_Import
             DataTable dt = (DataTable)dataGridView2.DataSource;
             dt.WriteXml($"{Properties.Settings.Default.fileLocation}\\User Settings.xml");
         }
-
+        //Checks if work order exists in dataGridView4
         private void CheckifWOExists(string woNumber, out bool test)
         {
             test = false;
@@ -343,10 +253,7 @@ namespace Work_Order_Import
             {
                 foreach (DataGridViewRow row in dataGridView4.Rows)
                 {
-                    // Skip new/empty rows
                     if (row.IsNewRow) continue;
-
-                    // Check if cell exists and is not null
                     var cell = row.Cells[3];
                     if (cell?.Value != null && cell.Value.ToString().Contains(woNumber))
                     {
@@ -360,27 +267,7 @@ namespace Work_Order_Import
                 MessageBox.Show("Error in CheckifWOExists: " + ex.Message);
             }
         }
-
-        private void CheckifWOExists2(string woNumber, out bool test)
-        {
-            test = false;
-            try
-            {
-                foreach (DataGridViewRow row in dataGridView6.Rows)
-                {
-                    if (row.Cells[1].Value.ToString().Contains(woNumber))
-                    {
-                        test = true;
-                        return;
-                    }
-                }
-            }
-            catch
-            {
-                return;
-            }
-        }
-
+        //Pulls work order info from dataGridView4         
         private void GetWorkOrderInfo(string woNumber, out string partNumber, out string orderAmount, out string dueDate)
         {
             partNumber = orderAmount = dueDate = string.Empty;
@@ -406,13 +293,14 @@ namespace Work_Order_Import
                 MessageBox.Show("Error in GetWorkOrderInfo: " + ex.Message);
             }
         }
-
+        //Inputs work order info into dataGridView1 to be imported into columbus
         private void InputWOInfo()
         {
             string woNumber = textBox1.Text.ToString();
             CheckifWOExists(woNumber, out bool test);
             if (test == false)
             {
+                //Allows for manual entry of work order info if not found in table
                 MessageBox.Show("Work order number could not be found!");
                 DialogResult dialogResult = MessageBox.Show("Would you like to enter work order manually?", "", MessageBoxButtons.YesNo);
                 if(dialogResult == DialogResult.Yes)
@@ -472,7 +360,7 @@ namespace Work_Order_Import
             CheckIfPNExists(partNumber, out bool test2, out string partNumberFinal);
             if (decimal.TryParse(orderAmount, out decimal parsedQty))
             {
-                orderAmount = ((int)parsedQty).ToString(); // or Math.Floor(parsedQty).ToString()
+                orderAmount = ((int)parsedQty).ToString();
             }
             else
             {
@@ -481,7 +369,7 @@ namespace Work_Order_Import
             }
             if (DateTime.TryParse(dueDate, out DateTime parsedDate))
             {
-                dueDate = parsedDate.ToString("yyyy-MM-dd"); // or whatever format you want
+                dueDate = parsedDate.ToString("yyyy-MM-dd");
             }
             else
             {
@@ -507,7 +395,7 @@ namespace Work_Order_Import
             textBox1.Select();
             textBox1.Clear();
         }
-
+        //Checks if part number exists in columbus database
         private void CheckIfPNExists(string partNumber, out bool test2, out string partNumberFinal)
         {
             test2 = false;
@@ -565,9 +453,8 @@ namespace Work_Order_Import
             }
 
             partNumberFinal = null;
-
         }
-
+        //This was a work in progress on allowing user to import a cad file into columbus and assigning it relevant part data
         private void ImportToColumbus(string columbusName)
         {
             MessageBox.Show("Please select drawing file.");
@@ -612,9 +499,8 @@ namespace Work_Order_Import
                 MessageBox.Show("No drawing file selected");
                 return;
             }
-
         }
-
+        //Method to take columbus data and import it into table
         private void GetColumbusData(string partNumber, out string materialGrade, out string thickness)
         {
             DataGridViewRow row = dataGridView3.Rows
@@ -625,7 +511,7 @@ namespace Work_Order_Import
             materialGrade = dataGridView3.Rows[index].Cells[2].Value.ToString();
             thickness = dataGridView3.Rows[index].Cells[1].Value.ToString();
         }
-
+        //takes info from import table and converts to a csv file to be imported into columbus
         private void SendToColumbus()
         {
             string csv = string.Empty;
@@ -633,8 +519,7 @@ namespace Work_Order_Import
             {
                 MessageBox.Show("No work orders selected for import!");
                 return;
-            }
-            
+            }         
                    foreach (DataGridViewRow row in dataGridView1.Rows)
             {
                 foreach (DataGridViewCell cell in row.Cells)
@@ -647,130 +532,7 @@ namespace Work_Order_Import
             File.WriteAllText(folderPath + "WO Import.csv", csv);
             dataGridView1.Rows.Clear();
         }
-
-        private void ValidateNest()
-        {
-            dataGridView7.Rows.Clear();
-            string errorList = "";
-            string layoutName = textBox2.Text.ToString();
-            PopulateColumbusData2(layoutName);
-            PopulateMasData2();
-            dataGridView5.AllowUserToAddRows = false;
-            string partNumber;
-            string itemCode;
-            string workOrder;
-            string stepNumber;
-            string nestItemCode;
-            foreach (DataGridViewRow row in dataGridView5.Rows)
-            {
-                string woNumber = row.Cells[1].Value.ToString();
-                CheckifWOExists2(woNumber, out bool test);
-                if (test == false)
-                {
-                    errorList = $"{errorList}{woNumber} could not be found! {Environment.NewLine}";
-                    continue;
-                }
-
-                if (woNumber == "" || woNumber == null)
-                {
-                    partNumber = row.Cells[0].Value.ToString();
-                    errorList = $"{errorList}{partNumber} is missing work order number! {Environment.NewLine}";
-                    continue;
-                }
-                
-                DataGridViewRow row2 = dataGridView6.Rows
-                .Cast<DataGridViewRow>()
-                .Where(r => r.Cells[1].Value.ToString().Equals(woNumber))
-                .First();
-                int index = row2.Index;
-                partNumber = dataGridView6.Rows[index].Cells[0].Value.ToString().ToUpper();
-                workOrder = dataGridView6.Rows[index].Cells[1].Value.ToString();
-                itemCode = dataGridView6.Rows[index].Cells[3].Value.ToString();
-                stepNumber = row.Cells[2].Value.ToString();
-                nestItemCode = row.Cells[3].Value.ToString();
-                if (dataGridView7.Rows[0].Cells[1].Value == null)
-                {
-                    dataGridView7.Rows[0].SetValues(partNumber, workOrder, itemCode, nestItemCode, stepNumber);
-                }
-                else { dataGridView7.Rows.Add(partNumber, workOrder, itemCode, nestItemCode, stepNumber); }
-            }
-
-                string workOrderItemCode;
-                for (int i = 0; i < dataGridView7.Rows.Count - 1; i++)
-                {
-                    workOrder = dataGridView7.Rows[i].Cells[1].Value.ToString();
-                    workOrderItemCode = dataGridView7.Rows[i].Cells[3].Value.ToString();
-                    nestItemCode = dataGridView7.Rows[i].Cells[2].Value.ToString();
-                    if (workOrderItemCode != nestItemCode)
-                    {
-                        errorList = $"{errorList}{workOrder} - {nestItemCode} does not match {workOrderItemCode} on work order! {Environment.NewLine}";
-                        continue;
-                    }
-                }
-                /*if (errorList != "")
-                {
-                DialogResult dialogResult = MessageBox.Show("Nest does not match material on work order, would you like to sub a different material?", "Material Mistmatch", MessageBoxButtons.YesNo);
-                    if (dialogResult == DialogResult.Yes)
-                    {
-
-                    }
-                    else if (dialogResult == DialogResult.No)
-                    {
-
-                    }
-                }*/
-
-            
-
-            for (int i = 0; i < dataGridView7.Rows.Count - 1; i++)
-                {
-                    workOrder = dataGridView7.Rows[i].Cells[1].Value.ToString();
-                    stepNumber = dataGridView7.Rows[i].Cells[4].Value.ToString();
-                    if (stepNumber != "0000")
-                    {
-                        errorList = $"{errorList}{workOrder} is missing step number! {Environment.NewLine}";
-                        continue;
-                    }
-                }
-
-            if (errorList != "")
-            {
-                MessageBox.Show(errorList);
-                DialogResult dialogResult = MessageBox.Show("Nest has errors, would you like to remove nest from exchange database?", "ERROR", MessageBoxButtons.YesNo);
-                if (dialogResult == DialogResult.Yes)
-                {
-                    int j;
-                    using (SqlConnection conn = new SqlConnection(GetColumbusString(Properties.Settings.Default.nestingLocation)))
-                    {
-                        conn.Open();
-                        string query = @"DELETE FROM [Ohio Columbus 2019_Exchange].[dbo].[PartsData] WHERE [Layouts.Name] LIKE '" + layoutName + "'";
-                        SqlCommand cmd = new SqlCommand(query, conn);
-                        j = cmd.ExecuteNonQuery();
-                        if (j > 0)
-                        {
-                            MessageBox.Show(j + " record(s) successfully deleted!");
-                        }
-                        else
-                        {
-                            MessageBox.Show("No records deleted!");
-                        }
-                        conn.Close();
-                    } 
-                }
-                label7.Text = "Failed";
-                MessageBox.Show("Nest Failed");
-
-            }
-            else
-            {
-                
-                label7.Text = "Passed";
-                MessageBox.Show("Nest Passed");
-            }
-    
-
-        }
-        
+                       
         public Form1()
         {
             InitializeComponent();
@@ -799,11 +561,6 @@ namespace Work_Order_Import
                     }
                 }
             }
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -850,16 +607,7 @@ namespace Work_Order_Import
                 Properties.Settings.Default.fileLocation = folderBrowserDialog1.SelectedPath;
                 Properties.Settings.Default.Save();
             }
-
             InsertDgvIntoForm();
-
-
-
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-            ValidateNest();
         }
 
         private void textBox1_KeyDown(object sender, KeyEventArgs e)
@@ -868,11 +616,6 @@ namespace Work_Order_Import
             {
                 button1_Click(this, new EventArgs());
             }
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void dataGridView1_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)

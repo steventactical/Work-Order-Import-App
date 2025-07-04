@@ -22,3 +22,17 @@ F:\Visual Studio\source\repos\Work Order Import\Work Order Import\bin\Debug\Syst
 F:\Visual Studio\source\repos\Work Order Import\Work Order Import\bin\Debug\System.Data.SQLite.xml
 F:\Visual Studio\source\repos\Work Order Import\Work Order Import\obj\Debug\Work_Order_Import.SettingsForm.resources
 F:\Visual Studio\source\repos\Work Order Import\Work Order Import\obj\Debug\Work Ord.56D62A7C.Up2Date
+C:\Users\renos\Source\Repos\Work-Order-Import-App\Work Order Import\bin\Debug\Work Order Import.exe.config
+C:\Users\renos\Source\Repos\Work-Order-Import-App\Work Order Import\bin\Debug\Work Order Import.exe
+C:\Users\renos\Source\Repos\Work-Order-Import-App\Work Order Import\bin\Debug\Work Order Import.pdb
+C:\Users\renos\Source\Repos\Work-Order-Import-App\Work Order Import\bin\Debug\System.Data.SQLite.dll
+C:\Users\renos\Source\Repos\Work-Order-Import-App\Work Order Import\bin\Debug\System.Data.SQLite.xml
+C:\Users\renos\Source\Repos\Work-Order-Import-App\Work Order Import\obj\Debug\Work Order Import.csproj.AssemblyReference.cache
+C:\Users\renos\Source\Repos\Work-Order-Import-App\Work Order Import\obj\Debug\Work_Order_Import.Form1.resources
+C:\Users\renos\Source\Repos\Work-Order-Import-App\Work Order Import\obj\Debug\Work_Order_Import.Properties.Resources.resources
+C:\Users\renos\Source\Repos\Work-Order-Import-App\Work Order Import\obj\Debug\Work_Order_Import.SettingsForm.resources
+C:\Users\renos\Source\Repos\Work-Order-Import-App\Work Order Import\obj\Debug\Work Order Import.csproj.GenerateResource.cache
+C:\Users\renos\Source\Repos\Work-Order-Import-App\Work Order Import\obj\Debug\Work Order Import.csproj.CoreCompileInputs.cache
+C:\Users\renos\Source\Repos\Work-Order-Import-App\Work Order Import\obj\Debug\Work Ord.56D62A7C.Up2Date
+C:\Users\renos\Source\Repos\Work-Order-Import-App\Work Order Import\obj\Debug\Work Order Import.exe
+C:\Users\renos\Source\Repos\Work-Order-Import-App\Work Order Import\obj\Debug\Work Order Import.pdb

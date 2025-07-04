@@ -53,7 +53,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(20, 31);
+            this.label1.Location = new System.Drawing.Point(29, 29);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(167, 28);
@@ -74,7 +74,7 @@
             this.buttonBrowse.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonBrowse.Location = new System.Drawing.Point(432, 65);
             this.buttonBrowse.Name = "buttonBrowse";
-            this.buttonBrowse.Size = new System.Drawing.Size(75, 29);
+            this.buttonBrowse.Size = new System.Drawing.Size(82, 34);
             this.buttonBrowse.TabIndex = 3;
             this.buttonBrowse.Text = "Browse";
             this.buttonBrowse.UseVisualStyleBackColor = true;
@@ -85,7 +85,7 @@
             this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonSave.Location = new System.Drawing.Point(358, 189);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(75, 29);
+            this.buttonSave.Size = new System.Drawing.Size(75, 38);
             this.buttonSave.TabIndex = 4;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = true;
@@ -96,7 +96,7 @@
             this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonCancel.Location = new System.Drawing.Point(439, 189);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(75, 29);
+            this.buttonCancel.Size = new System.Drawing.Size(80, 38);
             this.buttonCancel.TabIndex = 5;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
@@ -107,7 +107,7 @@
             this.buttonFileLocation.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonFileLocation.Location = new System.Drawing.Point(432, 127);
             this.buttonFileLocation.Name = "buttonFileLocation";
-            this.buttonFileLocation.Size = new System.Drawing.Size(75, 29);
+            this.buttonFileLocation.Size = new System.Drawing.Size(82, 34);
             this.buttonFileLocation.TabIndex = 7;
             this.buttonFileLocation.Text = "Browse";
             this.buttonFileLocation.UseVisualStyleBackColor = true;
