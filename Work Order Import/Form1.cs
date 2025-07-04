@@ -17,7 +17,7 @@ namespace Work_Order_Import
     public partial class Form1 : Form
     {
         private int rowIndex;
-        //Sets SQL server connection string based on which location employee is located at
+        //Sets SQL server connection string based on which location employee is located at 
         public static string GetColumbusString(string columbusLocation)
         {
             string connectionString;
