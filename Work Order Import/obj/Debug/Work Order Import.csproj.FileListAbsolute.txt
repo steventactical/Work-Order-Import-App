@@ -1,0 +1,24 @@
+C:\Users\slynch\source\repos\Work Order Import\Work Order Import\bin\Debug\Work Order Import.exe.config
+C:\Users\slynch\source\repos\Work Order Import\Work Order Import\bin\Debug\Work Order Import.exe
+C:\Users\slynch\source\repos\Work Order Import\Work Order Import\bin\Debug\Work Order Import.pdb
+C:\Users\slynch\source\repos\Work Order Import\Work Order Import\obj\Debug\Work_Order_Import.Form1.resources
+C:\Users\slynch\source\repos\Work Order Import\Work Order Import\obj\Debug\Work_Order_Import.Properties.Resources.resources
+C:\Users\slynch\source\repos\Work Order Import\Work Order Import\obj\Debug\Work Order Import.csproj.GenerateResource.cache
+C:\Users\slynch\source\repos\Work Order Import\Work Order Import\obj\Debug\Work Order Import.exe
+C:\Users\slynch\source\repos\Work Order Import\Work Order Import\obj\Debug\Work Order Import.pdb
+C:\Users\slynch\source\repos\Work Order Import\Work Order Import\obj\Debug\Work Order Import.csproj.CoreCompileInputs.cache
+C:\Users\slynch\source\repos\Work Order Import\Work Order Import\obj\Debug\Work Order Import.csprojAssemblyReference.cache
+F:\Visual Studio\source\repos\Work Order Import\Work Order Import\bin\Debug\Work Order Import.exe.config
+F:\Visual Studio\source\repos\Work Order Import\Work Order Import\bin\Debug\Work Order Import.exe
+F:\Visual Studio\source\repos\Work Order Import\Work Order Import\bin\Debug\Work Order Import.pdb
+F:\Visual Studio\source\repos\Work Order Import\Work Order Import\obj\Debug\Work Order Import.csproj.AssemblyReference.cache
+F:\Visual Studio\source\repos\Work Order Import\Work Order Import\obj\Debug\Work_Order_Import.Form1.resources
+F:\Visual Studio\source\repos\Work Order Import\Work Order Import\obj\Debug\Work_Order_Import.Properties.Resources.resources
+F:\Visual Studio\source\repos\Work Order Import\Work Order Import\obj\Debug\Work Order Import.csproj.GenerateResource.cache
+F:\Visual Studio\source\repos\Work Order Import\Work Order Import\obj\Debug\Work Order Import.csproj.CoreCompileInputs.cache
+F:\Visual Studio\source\repos\Work Order Import\Work Order Import\obj\Debug\Work Order Import.exe
+F:\Visual Studio\source\repos\Work Order Import\Work Order Import\obj\Debug\Work Order Import.pdb
+F:\Visual Studio\source\repos\Work Order Import\Work Order Import\bin\Debug\System.Data.SQLite.dll
+F:\Visual Studio\source\repos\Work Order Import\Work Order Import\bin\Debug\System.Data.SQLite.xml
+F:\Visual Studio\source\repos\Work Order Import\Work Order Import\obj\Debug\Work_Order_Import.SettingsForm.resources
+F:\Visual Studio\source\repos\Work Order Import\Work Order Import\obj\Debug\Work Ord.56D62A7C.Up2Date
