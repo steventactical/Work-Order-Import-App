@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBoxDbLocation = new System.Windows.Forms.TextBox();
             this.buttonOpenSettings = new System.Windows.Forms.Button();
@@ -57,7 +57,6 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
-            this.panel5 = new System.Windows.Forms.Panel();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.button2 = new System.Windows.Forms.Button();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
@@ -77,7 +76,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel6.SuspendLayout();
-            this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
@@ -93,6 +91,7 @@
             this.panel1.Controls.Add(this.panel11);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.panel3);
@@ -111,7 +110,7 @@
             this.textBoxDbLocation.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBoxDbLocation.Enabled = false;
             this.textBoxDbLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.textBoxDbLocation.Location = new System.Drawing.Point(196, 432);
+            this.textBoxDbLocation.Location = new System.Drawing.Point(171, 429);
             this.textBoxDbLocation.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxDbLocation.Name = "textBoxDbLocation";
             this.textBoxDbLocation.ReadOnly = true;
@@ -166,7 +165,7 @@
             this.button1.Location = new System.Drawing.Point(350, 59);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(101, 33);
+            this.button1.Size = new System.Drawing.Size(90, 33);
             this.button1.TabIndex = 3;
             this.button1.Text = "Accept";
             this.button1.UseVisualStyleBackColor = false;
@@ -221,7 +220,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 34F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Gray;
-            this.label1.Location = new System.Drawing.Point(105, -10);
+            this.label1.Location = new System.Drawing.Point(91, -4);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(517, 65);
@@ -234,14 +233,14 @@
             this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(120)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(120)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -331,7 +330,7 @@
             this.button6.Location = new System.Drawing.Point(444, 59);
             this.button6.Margin = new System.Windows.Forms.Padding(2);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(227, 33);
+            this.button6.Size = new System.Drawing.Size(215, 33);
             this.button6.TabIndex = 9;
             this.button6.Text = "Send to Columbus";
             this.button6.UseVisualStyleBackColor = false;
@@ -340,11 +339,12 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.Black;
+            this.panel4.Controls.Add(this.dataGridView2);
             this.panel4.Controls.Add(this.panel6);
             this.panel4.Controls.Add(this.button3);
             this.panel4.Controls.Add(this.button4);
             this.panel4.Controls.Add(this.button7);
-            this.panel4.Location = new System.Drawing.Point(51, 600);
+            this.panel4.Location = new System.Drawing.Point(169, 610);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(337, 353);
             this.panel4.TabIndex = 1;
@@ -421,23 +421,14 @@
             this.button7.UseVisualStyleBackColor = false;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.panel5.Controls.Add(this.dataGridView2);
-            this.panel5.Location = new System.Drawing.Point(51, 656);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(328, 246);
-            this.panel5.TabIndex = 2;
-            // 
             // dataGridView2
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView2.Location = new System.Drawing.Point(4, 56);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.Size = new System.Drawing.Size(328, 233);
+            this.dataGridView2.Size = new System.Drawing.Size(320, 233);
             this.dataGridView2.TabIndex = 6;
             // 
             // button2
@@ -447,7 +438,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(409, 817);
+            this.button2.Location = new System.Drawing.Point(410, 432);
             this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(135, 33);
@@ -566,9 +557,7 @@
             this.ClientSize = new System.Drawing.Size(1495, 1103);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.dataGridView8);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.dataGridView4);
@@ -588,7 +577,6 @@
             this.panel4.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
@@ -612,7 +600,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;

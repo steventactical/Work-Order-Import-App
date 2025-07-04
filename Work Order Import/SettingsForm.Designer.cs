@@ -46,14 +46,14 @@
             this.comboBox1.Location = new System.Drawing.Point(230, 26);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(277, 36);
+            this.comboBox1.Size = new System.Drawing.Size(289, 36);
             this.comboBox1.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(29, 29);
+            this.label1.Location = new System.Drawing.Point(20, 29);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(167, 28);
@@ -72,7 +72,7 @@
             // buttonBrowse
             // 
             this.buttonBrowse.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonBrowse.Location = new System.Drawing.Point(432, 65);
+            this.buttonBrowse.Location = new System.Drawing.Point(439, 65);
             this.buttonBrowse.Name = "buttonBrowse";
             this.buttonBrowse.Size = new System.Drawing.Size(82, 34);
             this.buttonBrowse.TabIndex = 3;
@@ -83,7 +83,7 @@
             // buttonSave
             // 
             this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonSave.Location = new System.Drawing.Point(358, 189);
+            this.buttonSave.Location = new System.Drawing.Point(360, 178);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(75, 38);
             this.buttonSave.TabIndex = 4;
@@ -94,7 +94,7 @@
             // buttonCancel
             // 
             this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonCancel.Location = new System.Drawing.Point(439, 189);
+            this.buttonCancel.Location = new System.Drawing.Point(441, 178);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(80, 38);
             this.buttonCancel.TabIndex = 5;
@@ -105,7 +105,7 @@
             // buttonFileLocation
             // 
             this.buttonFileLocation.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonFileLocation.Location = new System.Drawing.Point(432, 127);
+            this.buttonFileLocation.Location = new System.Drawing.Point(439, 127);
             this.buttonFileLocation.Name = "buttonFileLocation";
             this.buttonFileLocation.Size = new System.Drawing.Size(82, 34);
             this.buttonFileLocation.TabIndex = 7;
@@ -137,7 +137,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(564, 253);
+            this.ClientSize = new System.Drawing.Size(549, 283);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.buttonFileLocation);
             this.Controls.Add(this.textBoxFileLocation);
