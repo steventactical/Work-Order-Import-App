@@ -36,3 +36,17 @@ C:\Users\renos\Source\Repos\Work-Order-Import-App\Work Order Import\obj\Debug\Wo
 C:\Users\renos\Source\Repos\Work-Order-Import-App\Work Order Import\obj\Debug\Work Ord.56D62A7C.Up2Date
 C:\Users\renos\Source\Repos\Work-Order-Import-App\Work Order Import\obj\Debug\Work Order Import.exe
 C:\Users\renos\Source\Repos\Work-Order-Import-App\Work Order Import\obj\Debug\Work Order Import.pdb
+C:\Users\lynchs\Source\Repos\Work-Order-Import-App\Work Order Import\bin\Debug\Work Order Import.exe.config
+C:\Users\lynchs\Source\Repos\Work-Order-Import-App\Work Order Import\bin\Debug\Work Order Import.exe
+C:\Users\lynchs\Source\Repos\Work-Order-Import-App\Work Order Import\bin\Debug\Work Order Import.pdb
+C:\Users\lynchs\Source\Repos\Work-Order-Import-App\Work Order Import\bin\Debug\System.Data.SQLite.dll
+C:\Users\lynchs\Source\Repos\Work-Order-Import-App\Work Order Import\bin\Debug\System.Data.SQLite.xml
+C:\Users\lynchs\Source\Repos\Work-Order-Import-App\Work Order Import\obj\Debug\Work Order Import.csproj.AssemblyReference.cache
+C:\Users\lynchs\Source\Repos\Work-Order-Import-App\Work Order Import\obj\Debug\Work_Order_Import.Form1.resources
+C:\Users\lynchs\Source\Repos\Work-Order-Import-App\Work Order Import\obj\Debug\Work_Order_Import.Properties.Resources.resources
+C:\Users\lynchs\Source\Repos\Work-Order-Import-App\Work Order Import\obj\Debug\Work_Order_Import.SettingsForm.resources
+C:\Users\lynchs\Source\Repos\Work-Order-Import-App\Work Order Import\obj\Debug\Work Order Import.csproj.GenerateResource.cache
+C:\Users\lynchs\Source\Repos\Work-Order-Import-App\Work Order Import\obj\Debug\Work Order Import.csproj.CoreCompileInputs.cache
+C:\Users\lynchs\Source\Repos\Work-Order-Import-App\Work Order Import\obj\Debug\Work Ord.56D62A7C.Up2Date
+C:\Users\lynchs\Source\Repos\Work-Order-Import-App\Work Order Import\obj\Debug\Work Order Import.exe
+C:\Users\lynchs\Source\Repos\Work-Order-Import-App\Work Order Import\obj\Debug\Work Order Import.pdb
