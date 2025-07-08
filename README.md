@@ -19,6 +19,7 @@ A Windows Forms application designed to automate the process of importing work o
 3. **Running in Test Environment for Employers**:
     - To run the program in a test environment, **select the demo database** in the settings.
     - The demo database will contain **work orders WO001 - WO005** for test importing.
+    - To test manual work order entry, use WO006.
 
 4. **Features**:
     - Enter a work order number in the provided field.
